@@ -1,13 +1,12 @@
-const express = require('express')
-const cors = require('cors')
+import express from 'express'
+import cors from 'cors'
+import authRoutes from './routes/authRoutes.js'
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 
-app.post('/api/test', (req, res) => {
-  res.json({ message: "API is working" });
-});
+app.use('/api/auth', authRoutes)
 
-module.exports = app
+export default app
